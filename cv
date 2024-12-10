@@ -1,0 +1,259 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage{lmodern} % Adds lighter font weights
+\usepackage[margin=1in]{geometry} % Adjust page margins
+\usepackage{graphicx} % For including images
+\usepackage{xcolor} % For custom colors
+\usepackage{titlesec} % For customizing section titles
+\usepackage{enumitem} % For custom lists
+\usepackage{hyperref} % For clickable links
+\usepackage{colortbl} % For cell color
+\usepackage{mdframed} % For creating page border
+\usepackage{tikz} % For creating page border
+\usepackage{graphicx} % For including images
+\usepackage{adjustbox} % For clipping the image into a circular shape
+\usepackage{fontawesome} % For using fontawesome icons
+\usepackage{pifont} % Required for check marks
+\usepackage{tikzpagenodes}
+
+
+% Palette de couleurs ajustée
+\definecolor{myblue}{RGB}{52, 152, 219}    % Bleu azur pour les titres principaux (inchangé)
+\definecolor{myblue2}{RGB}{70, 130, 180}   % Bleu plus foncé pour les sous-titres
+\definecolor{separatorcolor}{RGB}{200, 230, 245} % Bleu clair légèrement foncé pour les séparateurs
+\definecolor{bordercolor}{RGB}{41, 128, 185} % Bleu profond pour le contour de page
+\definecolor{mygreen}{RGB}{34, 139, 89}     % Vert forêt pour les icônes et accents
+\definecolor{myorange}{RGB}{230, 126, 34}   % Orange atténué pour les éléments importants
+
+
+
+
+% Customize section title to reduce boldness
+\titleformat{\section}{\color{myblue}\large\bfseries}{}{0em}{}
+\titleformat{\subsection}{\color{myblue}\normalsize\bfseries}{}{0em}{}
+
+
+% No paragraph indentation and smaller space between paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+
+
+
+
+\begin{document}
+\pagenumbering{gobble} % Suppresses page numbering
+
+% Add page border using TikZ
+
+\AtBeginPage{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \draw[line width=10pt, color=myblue]
+            (current page.south west) rectangle (current page.north east); % Frame aligns exactly with page borders
+    \end{tikzpicture}%
+}
+
+% Set up a table with three fixed-width columns
+\begin{tabular}{p{0.37\textwidth} p{0.63\textwidth}} % Left, separator, and right columns
+
+
+% Left column content
+\begin{minipage}[t]{\linewidth}
+
+% Profile Picture - Centered and Circular
+\centering
+\vspace{-4em} % Adjust this to move the image higher
+\begin{tikzpicture}
+    \clip (0,0) circle (1.7cm); % Adjust the radius as needed
+    \node at (0,0) {\includegraphics[width=5cm]{moi.jpg}}; % Replace with your image path
+\end{tikzpicture}
+
+
+
+
+% Contact Information with Icons in Smaller Text
+\section*{\color{myblue} Contact}
+{\footnotesize % Start of smaller text block
+\begin{itemize}[left=0pt, itemsep=4pt, label={}]
+    \item \textcolor{mygreen} \faPhone \, (+33) 6 37 44 66 20
+    \item \textcolor{mygreen} \faEnvelope \, \href{mailto:nadim.saleem9@etu.univ-lorraine.fr}{nadim.saleem9@etu.univ-lorraine.fr}
+    \item \textcolor{mygreen} \faGithub \, \href{https://github.com/NadimSALEEM}{github.com/NadimSALEEM}
+    \item \textcolor{mygreen} \faLinkedin \, \href{https://www.linkedin.com/in/nadim-saleem-726166195/}{linkedin.com/in/nadim-saleem}
+\end{itemize}
+} % End of smaller text block
+
+\vspace{-1em}
+% Skills Section
+\section*{\color{myblue} Compétences}
+
+\raggedright % Ensures all text is aligned to the left
+\leftskip=0pt % Removes any automatic indentation
+
+{\footnotesize % Reduces the font size to optimize space
+\vspace{-.5em}
+% Informatique & Sciences Cognitives
+\textbf{\color{myblue2} Informatique \& Sciences Cognitives}
+\begin{itemize}[left=0pt, parsep=5pt, topsep=5pt, itemsep=4pt, label=\ding{70}] % Uses a custom bullet symbol and spacing
+    \item \textbf{Programmation} : Python(avancé), Java, C, R, MATLAB, JavaScript, MySQL.
+    \item \textbf{IA \& Machine Learning} : Scikit-learn, PyTorch(classification, régression).
+    \item \textbf{TAL} : NLTK(Tokenization, extraction de mots-clés, analyse de sentiments).
+    \item \textbf{Ingénierie Logicielle} : UML, analyses fonctionnelles.
+    \item \textbf{Interaction Homme-Machine} : Openvibe(EEG), Tobii.
+    \item \textbf{Développement Web} : Node.js, React, AJAX.
+\end{itemize}
+
+\vspace{.5em} % Adds a bit of space before the next section
+
+% Bibliothèques & Frameworks
+\textbf{\color{myblue2} Bibliothèques \& Frameworks}
+\begin{itemize}[left=0pt,parsep=5pt, topsep=5pt, itemsep=4pt, label=\ding{70}]
+    \item \textbf{Data Science} : NumPy, SciPy, Matplotlib, Seaborn, OpenRefine, JASP.
+    \item \textbf{Ontologies \& Analyse Sémantique} : Protégé, GraphDB.
+    \item \textbf{Markup} : \LaTeX{}, HTML+CSS, Markdown.
+\end{itemize}
+
+\vspace{.5em} % Adds a bit of space before the next section
+
+% Outils
+\textbf{\color{myblue2} Outils}
+\begin{itemize}[left=0pt, parsep=5pt, topsep=5pt, itemsep=4pt, label=\ding{70}]
+    \item \textbf{Gestion de projet} : Rainbow, Trello, Notion.
+    \item \textbf{Contrôle de version} : GitLab, GitHub.
+    \item \textbf{Méthodes Agiles} : Scrum (sprints, backlog), Kanban.
+    \item \textbf{Design \& Prototypage} : Figma, Adobe Illustrator, Canva.
+    \item \textbf{Tests Utilisateur} : HotJar, Evalyzer, Lucky Orange.
+\end{itemize}
+
+\vspace{.5em}
+
+\textbf{\color{myblue2} Langues} \\
+\vspace{.5em}
+\begin{tabular}{@{}l l@{}}
+    \textbf{Français} : bilingue  & \textbf{Anglais} : C1 \\
+    
+    \textbf{Arabe} : maternelle &
+\end{tabular}
+
+
+
+
+} % End of footnotesize
+
+
+
+
+\end{minipage} &
+
+
+
+
+
+% Right column content
+\begin{minipage}[t]{\linewidth}
+
+% Name and Title
+\centering
+
+{\fontsize{24pt}{28pt}\selectfont \textbf{Nadim Saleem}} \\ % Custom font size
+\vspace{.5em}
+\textcolor{myblue}{\fontsize{12pt}{14pt}\selectfont Étudiant M2 Sciences cognitives} % Adjust subtitle size
+\textcolor{myblue}{\fontsize{12pt}{14pt}\selectfont parcours Expériences du numérique} % Adjust subtitle size
+\textcolor{myblue2}{\fontsize{11pt}{12pt}\selectfont à Institut des sciences du digital (IDMC)}\\[1em] % Adjust subtitle size
+
+
+\raggedright
+ % Reduces the font size to optimize space
+Passionné par les sciences cognitives et doté de compétences en programmation, IA et analyse de données, \textbf{je cherche un stage de 5 à 6 mois} pour mettre à profit mes connaissances en interfaces cerveau-machine et apporter des solutions innovantes dans le domaine de l’interaction homme-machine.
+
+
+\section*{Éducation}
+\vspace{-.5em}
+\textbf{Master en Sciences Cognitives} \\
+    \textit{@ Université de Lorraine, Nancy} \hfill \textbf{2023 -- 2025} (2 ans)\\
+    {\footnotesize % Reduces the font size to optimize space
+    parcours Expériences du numérique
+    }
+    \vspace{1em}
+    
+\textbf{Licence MIASHS} \\
+    \textit{@ Université de Lorraine, Nancy} \hfill \textbf{2020 -- 2023} (3 ans)\\
+    {\footnotesize % Reduces the font size to optimize space
+    Spécialisation en Sciences Cognitives
+    }
+    \vspace{1em}
+    
+\textbf{Diplôme d'Études en Français Langue Étrangère (DéFLE)} \\
+    \textit{@ Université de Lorraine, Nancy} \hfill \textbf{2019 -- 2020} (1 an)\\
+
+
+\section*{Expériences}
+\vspace{-.5em}
+\textbf{Laboratoire InterPsy - MSH Lorraine} \\
+\textit{Nancy, France (hybride)} \hfill \textbf{nov 2023 -- juin 2024} (8 mois)\\
+
+{\footnotesize % Reduces the font size to optimize space
+\vspace{.5em}
+\textbf{Projet : La résolution inconsciente de charades par frequency tagging. \textit{Supervisé par Prof. Ariane Bazan}} \\
+
+\begin{itemize}[left=0pt, itemsep=4pt, label=\ding{70}] % Uses a custom bullet symbol and spacing
+    \item  Mené une étude approfondie en psychanalyse, psycholinguistique et neuropsychologie, afin de poser les bases théoriques du projet.
+    \item  Conduit des sessions expérimentales avec l’eye tracker TOBII PRO SPECTRUM et analysé les données pour valider les hypothèses du projet.
+\end{itemize}
+
+}
+
+\vspace{1em}
+
+\textbf{Defi Informatique} \\
+\textit{Maxéville, France (sur site)} \hfill \textbf{mai 2023 -- juil 2023} (3 mois)\\
+
+{\footnotesize % Réduction de la taille de la police pour optimiser l'espace
+\vspace{.5em}
+\textbf{Stage en UX Design} \\
+
+\begin{itemize}[left=0pt, itemsep=4pt, label=\ding{70}] % Utilisation d'une puce personnalisée et espacement
+    \item Redessiné et optimisé les interfaces du logiciel L\&A, utilisé pour la gestion de la petite enfance, périscolaire et loisirs, pour une meilleure ergonomie.
+    \item Renforcé l’ergonomie et l’expérience utilisateur en créant une interface plus intuitive et accessible.
+\end{itemize}
+
+}
+
+\vspace{1em}
+
+\textbf{Skyrro.com et Fleecex.com} \\
+\textit{France (à distance)} \hfill \textbf{juil 2022 – fév 2023} (8 mois)\\
+
+{\footnotesize
+\vspace{.5em}
+\textbf{Polyvalent E-commerce} \\
+
+\begin{itemize}[left=0pt, itemsep=4pt, label=\ding{70}]
+    \item Optimisé et retouché des images et vidéos pour un rendu visuel professionnel sur les plateformes e-commerce.
+    \item Réalisé des évaluations heuristiques et optimisé l’UX des applications web et mobiles pour améliorer la satisfaction des utilisateurs.
+\end{itemize}
+}
+
+
+% Section Centre d'intérêt
+\section*{\color{myblue} Centre d'intérêt~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}
+\vspace{-.5em}
+{\footnotesize
+\begin{itemize}[left=0pt, itemsep=4pt, label=\ding{70}]
+    \item Musique : Pratique de la guitare depuis 5 ans.
+    \item Lecture : Préférence pour la littérature et les romans.
+\end{itemize}
+}
+
+
+% Langues
+
+
+
+\end{minipage} \\ % End of right column content
+
+\end{tabular}
+
+
+\end{document}
